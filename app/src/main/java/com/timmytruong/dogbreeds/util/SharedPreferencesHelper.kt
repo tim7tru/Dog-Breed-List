@@ -10,6 +10,7 @@ class SharedPreferencesHelper
     companion object
     {
         private const val PREF_TIME = "pref_time"
+
         private var prefs: SharedPreferences? = null
 
         @Volatile
@@ -26,6 +27,7 @@ class SharedPreferencesHelper
         private fun buildHelper(context: Context): SharedPreferencesHelper
         {
             prefs = PreferenceManager.getDefaultSharedPreferences(context)
+
             return SharedPreferencesHelper()
         }
     }

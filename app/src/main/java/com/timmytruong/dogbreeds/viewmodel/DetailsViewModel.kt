@@ -15,6 +15,7 @@ class DetailsViewModel(application: Application): BaseViewModel(application)
     {
         launch {
             val dog = DogDatabase(getApplication()).dogDao().getDog(dogUuid)
+
             dogLiveData.value = dog
         }
     }

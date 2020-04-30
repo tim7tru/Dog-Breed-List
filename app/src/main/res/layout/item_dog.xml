@@ -1,44 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable
+            name="dog"
+            type="com.timmytruong.dogbreeds.model.DogBreed"/>
+
+        <variable
+            name="listener"
+            type="com.timmytruong.dogbreeds.view.DogClickListener" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="125dp"
+        android:onClick="@{listener::onDogClicked}"
         android:orientation="horizontal">
-        
+
+        <TextView
+            android:id="@+id/dog_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(dog.uuid)}"/>
+
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:padding="4dp"/>
-        
+            android:padding="4dp"
+            android:imageUrl="@{dog.imageUrl}"/>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3" 
+            android:layout_weight="3"
+            android:gravity="center_vertical"
             android:orientation="vertical"
-            android:padding="4dp"
-            android:gravity="center_vertical">
-            
+            android:padding="4dp">
+
             <TextView
                 android:id="@+id/name"
+                style="@style/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dog Name"
-                style="@style/title"/>
-            
+                android:text="@{dog.dogBreed}" />
+
             <TextView
                 android:id="@+id/lifespan"
+                style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="lifespan"
-                style="@style/text"/>
-            
+                android:text="@{dog.lifespan}" />
+
         </LinearLayout>
-        
-        
-        
+
     </LinearLayout>
 
 </layout>

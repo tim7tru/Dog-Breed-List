@@ -16,7 +16,7 @@ class ListFragment : Fragment() {
 
     private lateinit var viewModel: ListViewModel
 
-    private val dogsListAdapter = DogsListAdapter(arrayListOf())
+    private val dogsListAdapter = DogsListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,26 +36,32 @@ class ListFragment : Fragment() {
 
         dogs_list.apply {
             layoutManager = LinearLayoutManager(context)
+
             adapter = dogsListAdapter
         }
 
         refresh_layout.setOnRefreshListener {
             dogs_list.visibility = View.GONE
+
             list_error.visibility = View.GONE
+
             loading_view.visibility = View.VISIBLE
+
             viewModel.refreshBypassCache()
+
             refresh_layout.isRefreshing = false
         }
 
         observeViewModel()
     }
 
-    fun observeViewModel()
+    private fun observeViewModel()
     {
         viewModel.dogs.observe(this, Observer
         {
             it?.let {
                 dogs_list.visibility = View.VISIBLE
+
                 dogsListAdapter.updateDogList(it)
             }
         })
@@ -70,9 +76,11 @@ class ListFragment : Fragment() {
         viewModel.loading.observe(this, Observer {
             it?.let {
                 loading_view.visibility = if (it) View.VISIBLE else View.GONE
+
                 if (it)
                 {
                     list_error.visibility = View.GONE
+
                     dogs_list.visibility = View.GONE
                 }
             }
