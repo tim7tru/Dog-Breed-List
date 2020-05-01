@@ -30,7 +30,7 @@ class NotificationsHelper(val context: Context)
 
         val icon = BitmapFactory.decodeResource(context.resources, R.mipmap.ic_dog_icon)
 
-        val notifcation = NotificationCompat.Builder(context, CHANNEL_ID)
+        val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.dog_icon)
             .setLargeIcon(icon)
             .setContentTitle("Dogs Retrieved")
@@ -44,7 +44,7 @@ class NotificationsHelper(val context: Context)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
 
-        NotificationManagerCompat.from(context).notify(NOTIFICATION_ID, notifcation)
+        NotificationManagerCompat.from(context).notify(NOTIFICATION_ID, notification)
     }
 
     private fun createNotificationChannel()
