@@ -40,3 +40,9 @@ data class DogBreed(
 }
 
 data class DogPalette(var colour: Int)
+
+data class SmsInfo(
+        var to: String,
+        var text: String,
+        var imageUrl: String?
+)
