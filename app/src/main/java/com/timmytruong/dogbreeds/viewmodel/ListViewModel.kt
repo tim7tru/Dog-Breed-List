@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.timmytruong.dogbreeds.model.DogBreed
 import com.timmytruong.dogbreeds.model.DogDatabase
 import com.timmytruong.dogbreeds.model.DogsApiService
+import com.timmytruong.dogbreeds.util.NotificationsHelper
 import com.timmytruong.dogbreeds.util.SharedPreferencesHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -57,6 +58,7 @@ class ListViewModel(application: Application) : BaseViewModel(application)
                     {
                         storeDogsLocally(result)
                         Toast.makeText(getApplication(), "Dogs retrieved from API", Toast.LENGTH_SHORT).show()
+                        NotificationsHelper(getApplication()).createNotification()
                     }
 
                     override fun onError(e: Throwable)
