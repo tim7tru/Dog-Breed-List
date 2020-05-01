@@ -8,11 +8,16 @@
         <variable
             name="dog"
             type="com.timmytruong.dogbreeds.model.DogBreed" />
+        
+        <variable
+            name="palette"
+            type="com.timmytruong.dogbreeds.model.DogPalette" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@{palette.colour}"
         tools:context=".view.DetailFragment">
 
         <ImageView
