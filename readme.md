@@ -3,6 +3,7 @@
 Following a course on Android Jetpack libraries, this is a demo application that uses the latest Jetpack libraries. 
 
 [Udemy Course](https://www.udemy.com/course/androidjetpack/)
+
 [My Personal Notes](https://docs.google.com/document/d/1mtVO4KMC4830CpoKFD337jjcgshXHrh2hsz4DJpISBo/edit?usp=sharing)
 
 ## Jetpack Libraries Explored
